@@ -1,0 +1,42 @@
+
+A) Repeated percepts
+Step Previous  Percept       Target  Outcome
+1    None      (29, True)    COOL    SEND COMMAND
+2    COOL      (29, True)    COOL    no command
+3    COOL      (29, True)    COOL    no command
+
+B) Exact boundaries
+Step Previous  Percept       Target  Outcome
+1    None      (20, True)    IDLE    SEND COMMAND
+2    IDLE      (26, True)    IDLE    no command
+
+C) Mode transition
+Step Previous  Percept       Target  Outcome
+1    None      (29, True)    COOL    SEND COMMAND
+2    COOL      (24, True)    IDLE    SEND COMMAND
+3    IDLE      (19, True)    WARM    SEND COMMAND
+4    WARM      (29, True)    COOL    SEND COMMAND
+
+D) Empty room
+Step Previous  Percept       Target  Outcome
+1    None      (29, True)    COOL    SEND COMMAND
+2    COOL      (29, False)   ECO     SEND COMMAND
+3    ECO       (15, False)   ECO     no command
+4    ECO       (29, True)    COOL    SEND COMMAND
+
+E) Full required sequence
+Step Previous  Percept       Target  Outcome
+1    None      (29, True)    COOL    SEND COMMAND
+2    COOL      (29, True)    COOL    no command
+3    COOL      (20, True)    IDLE    SEND COMMAND
+4    IDLE      (26, True)    IDLE    no command
+5    IDLE      (19, True)    WARM    SEND COMMAND
+6    WARM      (29, False)   ECO     SEND COMMAND
+
+F) Noisy sequence around 26 (no hysteresis)
+Step Previous  Percept       Target  Outcome
+1    None      (26.2, True)  COOL    SEND COMMAND
+2    COOL      (25.8, True)  IDLE    SEND COMMAND
+3    IDLE      (26.3, True)  COOL    SEND COMMAND
+4    COOL      (25.7, True)  IDLE    SEND COMMAND
+PS C:\Users\USER\Desktop\Lab AI  02> 
