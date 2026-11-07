@@ -1,0 +1,41 @@
+=== TASK 1: manual g/h/f check (supplied h) ===
+  process S: g=0 h=5 f=5 | frontier (node,g,h,f): [('A', 1, 4, 5), ('B', 4, 4, 8)]
+  process A: g=1 h=4 f=5 | frontier (node,g,h,f): [('C', 3, 2, 5), ('B', 4, 4, 8)]
+  process C: g=3 h=2 f=5 | frontier (node,g,h,f): [('G', 6, 0, 6), ('B', 4, 4, 8)]
+  process G: g=6 h=0 f=6 -> goal reached
+
+=== HEURISTIC AUDIT ===
+  S: h=5, true remaining=6, admissible=True
+  A: h=4, true remaining=5, admissible=True
+  B: h=4, true remaining=5, admissible=True
+  C: h=2, true remaining=3, admissible=True
+  G: h=0, true remaining=0, admissible=True
+  edge S->A (cost 1): h(S) <= 1 + h(A) -> 5 <= 5: True
+  edge S->B (cost 4): h(S) <= 4 + h(B) -> 5 <= 8: True
+  edge A->C (cost 2): h(A) <= 2 + h(C) -> 4 <= 4: True
+  edge B->G (cost 5): h(B) <= 5 + h(G) -> 4 <= 5: True
+  edge C->G (cost 3): h(C) <= 3 + h(G) -> 2 <= 3: True
+
+=== TASK 2: A* vs UCS (h = 0), same graph, start S, goal G ===
+  process S: g=0 h=0 f=0 | frontier (node,g,h,f): [('A', 1, 0, 1), ('B', 4, 0, 4)]
+  process A: g=1 h=0 f=1 | frontier (node,g,h,f): [('C', 3, 0, 3), ('B', 4, 0, 4)]
+  process C: g=3 h=0 f=3 | frontier (node,g,h,f): [('B', 4, 0, 4), ('G', 6, 0, 6)]
+  process B: g=4 h=0 f=4 | frontier (node,g,h,f): [('G', 6, 0, 6)]
+  process G: g=6 h=0 f=6 -> goal reached
+A*  : path=['S', 'A', 'C', 'G'], returned cost=6, summed cost=6, processed=['S', 'A', 'C', 'G'], expanded=3
+UCS : path=['S', 'A', 'C', 'G'], returned cost=6, summed cost=6, processed=['S', 'A', 'C', 'B', 'G'], expanded=4
+
+=== TASK 3: overestimate, only h(C) changed ===
+  h(C): 2 -> 10, true remaining cost of C = 3, admissible=False
+  process S: g=0 h=5 f=5 | frontier (node,g,h,f): [('A', 1, 4, 5), ('B', 4, 4, 8)]
+  process A: g=1 h=4 f=5 | frontier (node,g,h,f): [('B', 4, 4, 8), ('C', 3, 10, 13)]
+  process B: g=4 h=4 f=8 | frontier (node,g,h,f): [('G', 9, 0, 9), ('C', 3, 10, 13)]
+  process G: g=9 h=0 f=9 -> goal reached
+Original h  : path=['S', 'A', 'C', 'G'], returned cost=6, summed cost=6, processed=['S', 'A', 'C', 'G'], expanded=3
+h(C)=10     : path=['S', 'B', 'G'], returned cost=9, summed cost=9, processed=['S', 'A', 'B', 'G'], expanded=3
+  Changed? path=True, cost=True, expansions=False
+
+=== EDGE CASES ===
+  Start = goal (S to S): (0, ['S'])
+  Unreachable goal (G to S): (None, None)
+PS C:\Users\USER\Desktop\Lab AI 04> 
