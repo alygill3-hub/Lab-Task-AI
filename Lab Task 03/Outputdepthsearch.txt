@@ -1,0 +1,12 @@
+DLS limit 1: CUTOFF, path=None, processed=['A', 'B', 'C']
+DLS limit 2: CUTOFF, path=None, processed=['A', 'B', 'D', 'E', 'C', 'F']
+DLS limit 3: FOUND, path=['A', 'B', 'E', 'G'], processed=['A', 'B', 'D', 'E', 'G']
+DLS limit 4: FOUND, path=['A', 'B', 'E', 'G'], processed=['A', 'B', 'D', 'E', 'G']
+IDDFS max depth 1: CUTOFF, path=None, limits attempted=[0, 1], node visits=4
+IDDFS max depth 2: CUTOFF, path=None, limits attempted=[0, 1, 2], node visits=10
+IDDFS max depth 3: FOUND, path=['A', 'B', 'E', 'G'], limits attempted=[0, 1, 2, 3], node visits=15
+IDDFS max depth 4: FOUND, path=['A', 'B', 'E', 'G'], limits attempted=[0, 1, 2, 3], node visits=15
+Start = goal : ('FOUND', ['A'])
+Unreachable  : ('FAILURE', None)
+Cycle graph  : ('FAILURE', None)
+PS C:\Users\USER\Desktop\Lab AI 03> 

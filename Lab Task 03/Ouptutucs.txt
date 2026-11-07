@@ -1,0 +1,22 @@
+UCS A cost 0 ['A'] queue: [(1, 'B'), (5, 'C')]
+UCS B cost 1 ['A', 'B'] queue: [(2, 'E'), (5, 'C'), (5, 'D')]
+UCS E cost 2 ['A', 'B', 'E'] queue: [(3, 'G'), (5, 'C'), (5, 'D')]
+UCS G cost 3 ['A', 'B', 'E', 'G'] queue: [(5, 'C'), (5, 'D')]
+UCS path ['A', 'B', 'E', 'G']: hops=3, UCS cost=3, independent sum=3
+BFS A ['A'] queue: ['B', 'C']
+BFS B ['A', 'B'] queue: ['C', 'D', 'E']
+BFS C ['A', 'C'] queue: ['D', 'E', 'F', 'G']
+BFS D ['A', 'B', 'D'] queue: ['E', 'F', 'G']
+BFS E ['A', 'B', 'E'] queue: ['F', 'G']
+BFS F ['A', 'C', 'F'] queue: ['G']
+BFS G ['A', 'C', 'G'] queue: []
+BFS path ['A', 'C', 'G']: hops=2, cost=12
+UCS A cost 0 ['A'] queue: []
+Start = goal : (['A'], 0)
+UCS F cost 0 ['F'] queue: []
+Unreachable  : (None, None)
+UCS A cost 0 ['A'] queue: [(2, 'B')]
+UCS B cost 2 ['A', 'B'] queue: [(5, 'C')]
+UCS C cost 5 ['A', 'B', 'C'] queue: []
+Cycle graph  : (None, None)
+PS C:\Users\USER\Desktop\Lab AI 03> 
