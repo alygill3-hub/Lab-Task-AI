@@ -1,0 +1,32 @@
+=== Lab Task 2: Rule-Based Eligibility Check ===
+Test 1: Everything OK
+  Note     : Good marks, complete papers, clear conduct, income within limit
+  Input    : Marks=85, Papers=True, Conduct=True, Income=60000
+  Expected : Review
+  Result   : Review
+  Reason   : Applicant satisfies all 4 conditions
+  Status   : PASS
+------------------------------------------------------------
+Test 2: Conduct Not Clear
+  Note     : High marks and complete papers, but conduct clearance is missing
+  Input    : Marks=88, Papers=True, Conduct=False, Income=50000
+  Expected : Hold
+  Result   : Hold
+  Reason   : Conduct/disciplinary clearance not obtained
+  Status   : PASS
+------------------------------------------------------------
+Test 3: Income Too High
+  Note     : Marks and conduct are fine, but family income is above 100k
+  Input    : Marks=75, Papers=True, Conduct=True, Income=140000
+  Expected : Hold
+  Result   : Hold
+  Reason   : Family income is above the allowed limit (100,000)
+  Status   : PASS
+------------------------------------------------------------
+Test 4: Boundary Values
+  Note     : Marks exactly 70 and income exactly 100,000
+  Input    : Marks=70, Papers=True, Conduct=True, Income=100000
+  Expected : Review
+  Result   : Review
+  Reason   : Applicant satisfies all 4 conditions
+  Status   : PASS
