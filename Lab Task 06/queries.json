@@ -1,0 +1,62 @@
+[
+  {
+    "query": "How many books can a student borrow at a time?",
+    "doc": "library",
+    "evidence": "Students may borrow up to five books at a time for a period of fourteen days.",
+    "split": "dev"
+  },
+  {
+    "query": "When does the main hostel gate close?",
+    "doc": "hostel",
+    "evidence": "The main gate closes at ten in the evening for every resident.",
+    "split": "dev"
+  },
+  {
+    "query": "Is installing software allowed on lab machines?",
+    "doc": "lab",
+    "evidence": "Installing software on lab machines is not allowed",
+    "split": "dev"
+  },
+  {
+    "query": "Can contractors work remotely?",
+    "doc": "contractor",
+    "evidence": "Contractors can work remotely only if the signed contract permits it.",
+    "split": "dev"
+  },
+  {
+    "query": "What should I do when a printer prints blank pages?",
+    "doc": "printer",
+    "evidence": "For blank printer pages, check the ink levels and run the cleaning utility.",
+    "split": "test"
+  },
+  {
+    "query": "How many library items may I take out at once?",
+    "doc": "library",
+    "evidence": "Students may borrow up to five books at a time for a period of fourteen days.",
+    "split": "test"
+  },
+  {
+    "query": "What time must I be back at the residence in the evening?",
+    "doc": "hostel",
+    "evidence": "The main gate closes at ten in the evening for every resident.",
+    "split": "test"
+  },
+  {
+    "query": "Am I allowed to put new programs on the computers?",
+    "doc": "lab",
+    "evidence": "Installing software on lab machines is not allowed",
+    "split": "test"
+  },
+  {
+    "query": "What will flights cost tomorrow?",
+    "doc": null,
+    "evidence": null,
+    "split": "test"
+  },
+  {
+    "query": "Which team won the football game?",
+    "doc": null,
+    "evidence": null,
+    "split": "test"
+  }
+]
